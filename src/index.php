@@ -2,8 +2,7 @@
 spl_autoload_register();
 
 new classes\Rander;
-new classes\CRUD
-
+new classes\CRUD;
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +38,7 @@ new classes\CRUD
                     <input type="hidden" name="method" value="crate">
                     <div class="list_elem_form">
                         <div class="mb-3">
-                            <input type="text" class="form-control" name="name" placeholder="Full name">
+                            <input type="text" class="form-control" name="name" placeholder="Full name *" required>
                         </div>
                         <div class="row mb-3 g-3 align-items-center email">
                             <div class="col-auto">
@@ -88,7 +87,6 @@ new classes\CRUD
                 </div>
             </div>
         </div>
-
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

@@ -1,11 +1,9 @@
 function getHtml(inputData, field) {
     $.ajax({
         url: document.location.pathname,
-        type: "GET",
+        type: "POST",
         data: inputData,
-        dataType: "html",
         success: function(d){
-            console.log(d);
             if(field) {
                 switch (field['action']) {
                     case 'add':

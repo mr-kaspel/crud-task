@@ -4,9 +4,9 @@ namespace classes;
 class Rander extends Database
 {
     public function __construct() {
-        $method = $_GET['method'];
+        $method = $_POST['method'];
         if(method_exists(get_class(), $method)) {
-            $GLOBALS['number'] = $_GET['number'];
+            $GLOBALS['number'] = $_POST['number'];
             print_r($this->$method());
             die();
         }

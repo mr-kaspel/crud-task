@@ -9,7 +9,7 @@ class SQL {
             if(!mb_strlen($v)) continue;
 
             $basic = isset($arr['radio'][$k]) ? 1 : 0;
-            $query = "INSERT INTO email (value, user_id, basic) VALUES ('".$v."', '".$id."', ".$basic.")";
+            $query = "INSERT INTO ".$table." (value, user_id, basic) VALUES ('".$v."', '".$id."', ".$basic.")";
             $this->connection->query($query);
 
         }

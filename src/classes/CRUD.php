@@ -5,20 +5,20 @@ class CRUD extends Database
 {
     public function __construct()
     {
-        $method = $_GET['method'];
+        $method = $_POST['method'];
         if(method_exists(get_class(), $method)) {
-            $GLOBALS['number'] = $_GET['number'];
+            $GLOBALS['number'] = $_POST['number'];
             echo $this->$method();
             die();
         }
     }
 
-    public function crate(): void
+    public function crate()
     {
         $result = (object) [
-            'name' => trim($_GET['name']),
-            'arrEmail' => array_merge(['value' => $_GET['email']], ['radio' => $_GET['radioEmail']]),
-            'arrTelephone' => array_merge(['value' => $_GET['telephone']], ['radio' => $_GET['radioTelephone']])
+            'name' => trim($_POST['name']),
+            'arrEmail' => array_merge(['value' => $_POST['email']], ['radio' => $_POST['radioEmail']]),
+            'arrTelephone' => array_merge(['value' => $_POST['telephone']], ['radio' => $_POST['radioTelephone']])
          ];
 
         $this->createConnection();
@@ -37,7 +37,7 @@ class CRUD extends Database
 
     public function read(): string
     {
-        $id = trim($_GET['id']);
+        $id = trim($_POST['id']);
 
         if(!isset($id)) return null;;
 
@@ -71,10 +71,10 @@ class CRUD extends Database
     public function update()
     {
         $result = (object) [
-            'id' => trim($_GET['id']),
-            'name' => trim($_GET['name']),
-            'arrEmail' => array_merge(['value' => $_GET['email']], ['radio' => $_GET['radioEmail']]),
-            'arrTelephone' => array_merge(['value' => $_GET['telephone']], ['radio' => $_GET['radioTelephone']])
+            'id' => trim($_POST['id']),
+            'name' => trim($_POST['name']),
+            'arrEmail' => array_merge(['value' => $_POST['email']], ['radio' => $_POST['radioEmail']]),
+            'arrTelephone' => array_merge(['value' => $_POST['telephone']], ['radio' => $_POST['radioTelephone']])
         ];
 
         if(!isset($result->id)) return;
@@ -91,7 +91,7 @@ class CRUD extends Database
 
     public function delet(): void
     {
-        $id = trim($_GET['id']);
+        $id = trim($_POST['id']);
 
         if(!isset($id)) return;
 
